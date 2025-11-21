@@ -23,6 +23,7 @@ export const weeklyProgram: WorkoutDay[] = [
       { name: 'Pull ups', sets: 0, reps: 0 },
       { name: 'Squat', sets: 3, reps: 6 },
       { name: 'Run .25 mile', sets: 0, reps: 0 },
+      { name: 'Shoulder raises', sets: 3, reps: 15 },
     ],
   },
   {
@@ -35,6 +36,7 @@ export const weeklyProgram: WorkoutDay[] = [
       { name: 'Cable machine throwing motion with resistant', sets: 2, reps: 20 },
       { name: 'Pull ups', sets: 0, reps: 0 },
       { name: 'Dead lifts', sets: 3, reps: 6 },
+      { name: 'Shoulder raises', sets: 3, reps: 15 },
     ],
   },
   {
