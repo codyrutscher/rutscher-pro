@@ -1,4 +1,6 @@
 import ThrowSimulator from './components/ThrowSimulator';
+import FormAnalyzer from './components/FormAnalyzer';
+import { weeklyProgram } from './data/programming';
 
 export default function Home() {
   return (
@@ -33,6 +35,11 @@ export default function Home() {
         <ThrowSimulator />
       </section>
 
+      {/* Form Analyzer Section */}
+      <section id="form-analyzer" className="py-20 px-4 bg-gray-50">
+        <FormAnalyzer />
+      </section>
+
       {/* Training Modules Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
@@ -50,6 +57,49 @@ export default function Home() {
               <h3 className="text-2xl font-bold mb-4">Velocity</h3>
               <p className="text-gray-600">Increase your throwing speed progressively</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Programming Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4">Programming</h2>
+          <p className="text-center text-gray-600 mb-12">
+            Weekly training split: 2 workout days and 3 throwing days
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {weeklyProgram.map((day, index) => (
+              <div 
+                key={index} 
+                className={`rounded-lg shadow-lg overflow-hidden ${
+                  day.type === 'workout' ? 'bg-blue-50 border-2 border-blue-200' : 'bg-green-50 border-2 border-green-200'
+                }`}
+              >
+                <div className={`p-4 ${day.type === 'workout' ? 'bg-blue-600' : 'bg-green-600'}`}>
+                  <h3 className="text-xl font-bold text-white">{day.title}</h3>
+                </div>
+                <div className="p-6">
+                  {day.type === 'workout' ? (
+                    <ul className="space-y-3">
+                      {day.exercises.map((exercise, idx) => (
+                        <li key={idx} className="flex justify-between items-center">
+                          <span className="text-gray-800">{exercise.name}</span>
+                          {exercise.sets > 0 && (
+                            <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
+                              {exercise.reps} x {exercise.sets}
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-700">{day.description}</p>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
