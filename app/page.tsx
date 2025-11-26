@@ -1,10 +1,16 @@
 import ThrowSimulator from './components/ThrowSimulator';
 import FormAnalyzer from './components/FormAnalyzer';
+import NavBar from './components/NavBar';
+import WeightLossTracker from './components/WeightLossTracker';
+import ThrowingDistanceTracker from './components/ThrowingDistanceTracker';
+import VelocityTracker from './components/VelocityTracker';
 import { weeklyProgram } from './data/programming';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <NavBar />
+      
       {/* Hero Section with Stadium Background */}
       <section 
         className="flex flex-col items-center justify-center min-h-screen px-4 relative bg-cover bg-center"
@@ -40,6 +46,21 @@ export default function Home() {
         <FormAnalyzer />
       </section>
 
+      {/* Weight Loss Tracker Section */}
+      <section id="weight-loss" className="py-20 px-4 bg-gray-50">
+        <WeightLossTracker />
+      </section>
+
+      {/* Throwing Distance Tracker Section */}
+      <section id="throwing-tracker" className="py-20 px-4">
+        <ThrowingDistanceTracker />
+      </section>
+
+      {/* Velocity Tracker Section */}
+      <section id="velocity-tracker" className="py-20 px-4 bg-gray-50">
+        <VelocityTracker />
+      </section>
+
       {/* Training Modules Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
@@ -62,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* Programming Section */}
-      <section className="py-20 px-4">
+      <section id="programming" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Programming</h2>
           <p className="text-center text-gray-600 mb-12">
