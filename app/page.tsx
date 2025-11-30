@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import WeightLossTracker from './components/WeightLossTracker';
 import ThrowingDistanceTracker from './components/ThrowingDistanceTracker';
 import VelocityTracker from './components/VelocityTracker';
-import { weeklyProgram } from './data/programming';
+import { velocityProgram, progressionGuide } from './data/programming';
 
 export default function Home() {
   return (
@@ -85,38 +85,85 @@ export default function Home() {
       {/* Programming Section */}
       <section id="programming" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Programming</h2>
-          <p className="text-center text-gray-600 mb-12">
-            Weekly training split: 2 workout days and 3 throwing days
+          <h2 className="text-4xl font-bold text-center mb-4">7-Day Velocity Program</h2>
+          <p className="text-center text-gray-600 mb-4">
+            Complete training split for a 200lb athlete throwing 81mph
           </p>
+          <p className="text-center text-sm text-gray-500 mb-12">
+            Alternates lower body, upper body, rotational work, throwing, and recovery
+          </p>
+
+          {/* Progression Guide */}
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg mb-8">
+            <h3 className="text-xl font-bold mb-4">📈 Progression Guide</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+              <div className="bg-white/10 p-3 rounded">
+                <p className="font-semibold">Weeks 1-4</p>
+                <p>{progressionGuide.week1_4}</p>
+              </div>
+              <div className="bg-white/10 p-3 rounded">
+                <p className="font-semibold">Weeks 5-8</p>
+                <p>{progressionGuide.week5_8}</p>
+              </div>
+              <div className="bg-white/10 p-3 rounded">
+                <p className="font-semibold">Weeks 9-12</p>
+                <p>{progressionGuide.week9_12}</p>
+              </div>
+              <div className="bg-white/10 p-3 rounded">
+                <p className="font-semibold">Deload</p>
+                <p>{progressionGuide.deload}</p>
+              </div>
+            </div>
+          </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {weeklyProgram.map((day, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {velocityProgram.map((day, index) => (
               <div 
                 key={index} 
                 className={`rounded-lg shadow-lg overflow-hidden ${
-                  day.type === 'workout' ? 'bg-blue-50 border-2 border-blue-200' : 'bg-green-50 border-2 border-green-200'
+                  day.type === 'workout' 
+                    ? 'bg-blue-50 border-2 border-blue-200' 
+                    : day.type === 'throwing'
+                    ? 'bg-green-50 border-2 border-green-200'
+                    : 'bg-purple-50 border-2 border-purple-200'
                 }`}
               >
-                <div className={`p-4 ${day.type === 'workout' ? 'bg-blue-600' : 'bg-green-600'}`}>
-                  <h3 className="text-xl font-bold text-white">{day.title}</h3>
+                <div className={`p-4 ${
+                  day.type === 'workout' 
+                    ? 'bg-blue-600' 
+                    : day.type === 'throwing'
+                    ? 'bg-green-600'
+                    : 'bg-purple-600'
+                }`}>
+                  <h3 className="text-lg font-bold text-white">{day.title}</h3>
+                  {day.focus && <p className="text-xs text-white/80 mt-1">{day.focus}</p>}
                 </div>
-                <div className="p-6">
-                  {day.type === 'workout' ? (
-                    <ul className="space-y-3">
-                      {day.exercises.map((exercise, idx) => (
-                        <li key={idx} className="flex justify-between items-center">
+                <div className="p-4">
+                  <ul className="space-y-2">
+                    {day.exercises.map((exercise, idx) => (
+                      <li key={idx} className="text-sm">
+                        <div className="flex justify-between items-start gap-2">
                           <span className="text-gray-800">{exercise.name}</span>
-                          {exercise.sets > 0 && (
-                            <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">
-                              {exercise.reps} x {exercise.sets}
+                          {exercise.sets > 0 && exercise.reps > 1 && (
+                            <span className={`text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${
+                              day.type === 'workout' 
+                                ? 'text-blue-600 bg-blue-100' 
+                                : day.type === 'throwing'
+                                ? 'text-green-600 bg-green-100'
+                                : 'text-purple-600 bg-purple-100'
+                            }`}>
+                              {exercise.sets}x{exercise.reps}
                             </span>
                           )}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-gray-700">{day.description}</p>
+                        </div>
+                        {exercise.weight && (
+                          <p className="text-xs text-gray-500 mt-0.5">{exercise.weight}</p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  {day.description && (
+                    <p className="text-xs text-gray-600 mt-4 pt-3 border-t border-gray-200">{day.description}</p>
                   )}
                 </div>
               </div>
