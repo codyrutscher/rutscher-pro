@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import WeightLossTracker from './components/WeightLossTracker';
 import ThrowingDistanceTracker from './components/ThrowingDistanceTracker';
 import VelocityTracker from './components/VelocityTracker';
+import ExerciseDatabase from './components/ExerciseDatabase';
 import { velocityProgram, progressionGuide } from './data/programming';
 
 export default function Home() {
@@ -172,8 +173,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Exercise Database Section */}
+      <section id="exercise-database" className="py-20 px-4">
+        <ExerciseDatabase />
+      </section>
+
       {/* Training Programs Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Training Programs</h2>
           <p className="text-center text-gray-600 mb-8">
