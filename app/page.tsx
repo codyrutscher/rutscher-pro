@@ -23,7 +23,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
         <div className="relative z-10 text-center">
-          <h1 className="text-7xl font-bold text-white mb-4 drop-shadow-lg">Rutscher</h1>
+          <h1 className="text-7xl font-bold text-white mb-4 drop-shadow-lg">The Art of 75%</h1>
           <p className="text-2xl text-blue-200 italic mb-12 drop-shadow-md">"A stone's throw"</p>
           <p className="text-xl text-white max-w-2xl text-center mb-16 drop-shadow-md">
             Master the art of throwing 90 mph. Train smarter, throw harder.
