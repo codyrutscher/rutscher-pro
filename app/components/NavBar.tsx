@@ -38,6 +38,12 @@ export default function NavBar() {
               Velocity Tracker
             </button>
             <button
+              onClick={() => scrollToSection('daily-log')}
+              className="text-white hover:text-blue-400 transition font-semibold"
+            >
+              Daily Log
+            </button>
+            <button
               onClick={() => scrollToSection('exercise-database')}
               className="text-white hover:text-blue-400 transition font-semibold"
             >
