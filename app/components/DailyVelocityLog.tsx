@@ -144,17 +144,17 @@ export default function DailyVelocityLog() {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold mb-2">Date</label>
+              <label className="block text-sm font-semibold mb-2 text-black">Date</label>
               <input
                 type="date"
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-black"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Type</label>
+              <label className="block text-sm font-semibold mb-2 text-black">Type</label>
               <div className="grid grid-cols-3 gap-2">
                 {(Object.keys(typeLabels) as VelocityType[]).map((type) => {
                   const colors = typeColors[type];
@@ -176,12 +176,12 @@ export default function DailyVelocityLog() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Velocity (mph)</label>
+              <label className="block text-sm font-semibold mb-2 text-black">Velocity (mph)</label>
               <input
                 type="number"
                 value={velocity || ''}
                 onChange={(e) => setVelocity(Number(e.target.value))}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-2xl font-bold text-center"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-2xl font-bold text-center text-black"
                 placeholder="0"
               />
             </div>
@@ -285,11 +285,11 @@ export default function DailyVelocityLog() {
                         })}
                       </div>
                       <div>
-                        <label className="block text-xs font-semibold mb-1">Day Notes</label>
+                        <label className="block text-xs font-semibold mb-1 text-black">Day Notes</label>
                         <textarea
                           value={day.notes}
                           onChange={(e) => updateDayNotes(day.date, e.target.value)}
-                          className="w-full px-3 py-2 border rounded text-sm"
+                          className="w-full px-3 py-2 border rounded text-sm text-black"
                           placeholder="How did you feel? Any observations?"
                           rows={2}
                         />

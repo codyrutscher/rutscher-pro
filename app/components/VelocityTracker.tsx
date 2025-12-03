@@ -120,7 +120,7 @@ export default function VelocityTracker() {
           
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold mb-2">Throw Type</label>
+              <label className="block text-sm font-semibold mb-2 text-black">Throw Type</label>
               <div className="grid grid-cols-2 gap-2">
                 {(Object.keys(throwTypeLabels) as ThrowType[]).map((type) => {
                   const colors = throwTypeColors[type];
@@ -142,22 +142,22 @@ export default function VelocityTracker() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Velocity (mph)</label>
+              <label className="block text-sm font-semibold mb-2 text-black">Velocity (mph)</label>
               <input
                 type="number"
                 value={velocity || ''}
                 onChange={(e) => setVelocity(Number(e.target.value))}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Enter velocity"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Notes (optional)</label>
+              <label className="block text-sm font-semibold mb-2 text-black">Notes (optional)</label>
               <textarea
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-black"
                 placeholder="Add notes about this throw"
                 rows={3}
               />
