@@ -5,6 +5,7 @@ import WeightLossTracker from './components/WeightLossTracker';
 import ThrowingDistanceTracker from './components/ThrowingDistanceTracker';
 import VelocityTracker from './components/VelocityTracker';
 import DailyVelocityLog from './components/DailyVelocityLog';
+import LiftTracker from './components/LiftTracker';
 import ExerciseDatabase from './components/ExerciseDatabase';
 import { velocityProgram, progressionGuide } from './data/programming';
 
@@ -66,6 +67,11 @@ export default function Home() {
       {/* Daily Velocity Log Section */}
       <section id="daily-log" className="py-20 px-4 bg-gray-50">
         <DailyVelocityLog />
+      </section>
+
+      {/* Lift Tracker Section */}
+      <section id="lift-tracker" className="py-20 px-4">
+        <LiftTracker />
       </section>
 
       {/* Training Modules Section */}

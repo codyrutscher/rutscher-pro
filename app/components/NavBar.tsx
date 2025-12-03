@@ -41,7 +41,13 @@ export default function NavBar() {
               onClick={() => scrollToSection('daily-log')}
               className="text-white hover:text-blue-400 transition font-semibold"
             >
-              Daily Log
+              Velocity Log
+            </button>
+            <button
+              onClick={() => scrollToSection('lift-tracker')}
+              className="text-white hover:text-blue-400 transition font-semibold"
+            >
+              Lifts
             </button>
             <button
               onClick={() => scrollToSection('exercise-database')}
