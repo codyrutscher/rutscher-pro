@@ -21,6 +21,7 @@ const typeLabels: Record<VelocityType, string> = {
   pitching: 'Pitching',
   pulldown: 'Pull Down',
   infield: 'Infield',
+  knees: 'Knees',
 };
 
 const typeColors: Record<VelocityType, { bg: string; text: string; border: string }> = {
@@ -115,7 +116,7 @@ export default function DailyVelocityLog() {
     <div className="max-w-6xl mx-auto">
       <h2 className="text-4xl font-bold text-center mb-4">Daily Velocity Log</h2>
       <p className="text-center text-gray-600 mb-8">
-        Track pitching, pull down, and infield velocities day by day
+        Track pitching, knees, pull down, and infield velocities day by day
       </p>
 
       {/* Overall Stats */}
@@ -140,7 +141,7 @@ export default function DailyVelocityLog() {
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Input Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-2xl font-bold mb-6">Add Reading</h3>
+          <h3 className="text-2xl font-bold mb-6 text-black">Add Reading</h3>
           
           <div className="space-y-4">
             <div>
