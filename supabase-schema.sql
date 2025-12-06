@@ -54,3 +54,20 @@ CREATE POLICY "Allow all operations" ON lift_records
   FOR ALL
   USING (true)
   WITH CHECK (true);
+
+
+-- =====================================================
+-- UPDATE LIFT_RECORDS TO ADD NEW EXERCISE TYPES
+-- Run this if you already have the lift_records table
+-- =====================================================
+
+-- Drop the existing constraint
+ALTER TABLE lift_records DROP CONSTRAINT IF EXISTS lift_records_lift_type_check;
+
+-- Add the updated constraint with new exercise types
+ALTER TABLE lift_records ADD CONSTRAINT lift_records_lift_type_check 
+  CHECK (lift_type IN (
+    'deadlift', 'back_squat', 'front_squat', 'lunge', 'bench', 
+    'dumbbell_bench', 'cable_throws', 'cable_pulls', 'rows', 
+    'leg_press', 'tricep_extensions', 'pull_ups', 'push_ups', 'sit_ups'
+  ));
