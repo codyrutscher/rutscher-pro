@@ -33,7 +33,7 @@ CREATE TABLE lift_records (
   lift_type TEXT NOT NULL CHECK (lift_type IN (
     'deadlift', 'back_squat', 'front_squat', 'lunge', 'bench', 
     'dumbbell_bench', 'cable_throws', 'cable_pulls', 'rows', 
-    'leg_press', 'tricep_extensions'
+    'leg_press', 'tricep_extensions', 'pull_ups', 'push_ups', 'sit_ups'
   )),
   weight INTEGER NOT NULL,
   reps INTEGER NOT NULL,

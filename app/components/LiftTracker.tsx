@@ -14,7 +14,10 @@ type LiftType =
   | 'cable_pulls' 
   | 'rows' 
   | 'leg_press' 
-  | 'tricep_extensions';
+  | 'tricep_extensions'
+  | 'pull_ups'
+  | 'push_ups'
+  | 'sit_ups';
 
 interface LiftRecord {
   id?: string;
@@ -39,6 +42,9 @@ const liftLabels: Record<LiftType, string> = {
   rows: 'Rows',
   leg_press: 'Leg Press',
   tricep_extensions: 'Tricep Ext',
+  pull_ups: 'Pull Ups',
+  push_ups: 'Push Ups',
+  sit_ups: 'Sit Ups',
 };
 
 const liftColors: Record<LiftType, string> = {
@@ -53,6 +59,9 @@ const liftColors: Record<LiftType, string> = {
   rows: 'bg-cyan-100 text-cyan-700 border-cyan-200',
   leg_press: 'bg-pink-100 text-pink-700 border-pink-200',
   tricep_extensions: 'bg-violet-100 text-violet-700 border-violet-200',
+  pull_ups: 'bg-sky-100 text-sky-700 border-sky-200',
+  push_ups: 'bg-lime-100 text-lime-700 border-lime-200',
+  sit_ups: 'bg-rose-100 text-rose-700 border-rose-200',
 };
 
 export default function LiftTracker() {
